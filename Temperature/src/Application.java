@@ -5,27 +5,21 @@ public class Application
 		Temperatura[] temperaturas = new Temperatura[100];
 
 		// Toma de datos
-		for (int i = 0; i < temperaturas.length; i++)
-			temperaturas[i] = new Temperatura(leeSensorCelsius());
-
-		// Cálculo con los datos en Celsius
 		double mediaCelsius = 0;
-		for (int i = 0; i < temperaturas.length; i++)
+		double mediaFahrenheit = 0;
+		double varianza = 0;
+		for (int i = 0; i < temperaturas.length; i++) {
+			temperaturas[i] = new Temperatura(leeSensorCelsius());
 			mediaCelsius += temperaturas[i].getCelsius();
+			mediaFahrenheit += temperaturas[i].getFarenheit();
+			varianza += Math.pow((temperaturas[i].getFarenheit()) - mediaFahrenheit, 2);
+		}
 		mediaCelsius = mediaCelsius / temperaturas.length;
 		System.out.printf("La media en Celsius es: %.1f ºC\n", mediaCelsius);
-
-		// Cálculo con los datos en Fahrenheit
-		double mediaFahrenheit = 0;
-		for (int i = 0; i < temperaturas.length; i++)
-			mediaFahrenheit += temperaturas[i].getFarenheit();
+		
 		mediaFahrenheit = mediaFahrenheit / temperaturas.length;
 		System.out.printf("La media en Fahrenheit es: %.1f ºF\n", mediaFahrenheit);
-
-		// Otro cálculo con los datos en Fahrenheit
-		double varianza = 0;
-		for (int i = 0; i < temperaturas.length; i++)
-			varianza += Math.pow((temperaturas[i].getFarenheit()) - mediaFahrenheit, 2);
+		
 		varianza = varianza / temperaturas.length;
 		System.out.printf("La varianza en Fahrenheit es: %.1f\n", varianza);
 	}
