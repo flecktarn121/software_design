@@ -21,7 +21,7 @@ public class Application
 		System.out.printf("La media en Fahrenheit es: %.1f ºF\n", mediaFahrenheit);
 		
 		varianza = varianza / temperaturas.length;
-		System.out.printf("La varianza en Fahrenheit es: %.1f\n", varianza);
+		System.out.printf("La varianza en Fahrenheit es: %.1f\n", varianza);		
 	}
 
 	public static double leeSensorCelsius() 

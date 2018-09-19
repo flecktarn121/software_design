@@ -26,5 +26,27 @@ public class Movie
 	public String getTitle() 
 	{
 		return title;
+	}
+
+	public double getCharge(int daysRented) {
+		//Crearioamos una nueva interfaz  con getcharge y getfre..., cuyas implementaciones fuesen cada tipo de peli, y lego ese objeto se guardaría como atributo
+		//de movie, siendo así variable
+		double thisAmount = 0;
+		switch (getPriceCode()) {
+		case Movie.REGULAR:
+			thisAmount += 2;
+			if (daysRented > 2)
+				thisAmount += (daysRented - 2) * 1.5;
+			break;
+		case Movie.NEW_RELEASE:
+			thisAmount += daysRented * 3;
+			break;
+		case Movie.CHILDRENS:
+			thisAmount += 1.5;
+			if (daysRented > 3)
+				thisAmount += (daysRented - 3) * 1.5;
+			break;
+		}
+		return thisAmount;
 	}	
 }
