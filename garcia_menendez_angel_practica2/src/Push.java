@@ -7,9 +7,9 @@ public class Push extends Instruction {
 	}
 	
 	@Override
-	protected void execute(String[] args, MyStack stack, int[]memmory) {
-		stack.push(value);
-		stack.increaseIp();		
+	protected void execute(Interpreter interpreter) {
+		interpreter.getStack().push(value);
+		interpreter.getStack().increaseIp();		
 	}
 
 }

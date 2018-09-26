@@ -2,10 +2,10 @@
 public class Load extends Instruction {
 
 	@Override
-	protected void execute(String[] args, MyStack stack, int[]memmory) {
-		int address = stack.pop();
-		stack.push(memmory[address]);
-		stack.increaseIp();
+	protected void execute(Interpreter interpreter) {
+		int address = interpreter.getStack().pop();
+		interpreter.getStack().push(interpreter.getMemory()[address]);
+		interpreter.getStack().increaseIp();
 		
 	}
 

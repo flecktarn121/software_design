@@ -1,11 +1,11 @@
 
 public class Store extends Instruction {
 	@Override
-	protected void execute(String[] args, MyStack stack, int[]memmory) {
-		int value = stack.pop();
-		int address = stack.pop();
-		memmory[address] = value;
-		stack.increaseIp();
+	protected void execute(Interpreter interpreter) {
+		int value = interpreter.getStack().pop();
+		int address = interpreter.getStack().pop();
+		interpreter.getMemory()[address] = value;
+		interpreter.getStack().increaseIp();
 	}
 
 }

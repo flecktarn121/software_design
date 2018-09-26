@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class Input extends Instruction {
 
 	@Override
-	protected void execute(String[] args, MyStack stack, int[]memmory) {
+	protected void execute(Interpreter interpreter) {
 		System.out.println("Escriba un entero:");
-		stack.push(readValue());
-		stack.increaseIp();
+		interpreter.getStack().push(readValue());
+		interpreter.getStack().increaseIp();
 		
 	}
 	
