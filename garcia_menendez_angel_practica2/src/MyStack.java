@@ -21,4 +21,8 @@ public class MyStack {
 	protected int getIp() {
 		return ip;
 	}
+	
+	protected void setIp(int value) {
+		this.ip = value;
+	}
 }

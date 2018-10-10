@@ -37,9 +37,10 @@ public class Interpreter {
 	}
 
 	private void executeProgram() {
-		while (stack.getIp() < instructions.size()) {
-			String[] sentence = instructions.get(stack.getIp());
-			this.index.getInstruction(sentence[0]).execute(sentence, stack, memory);
+		int ip;
+		while (stack.getIp() < insList.size()) {
+			ip = stack.getIp();
+			insList.get(ip).execute(this);
 		}
 	}
 
@@ -61,28 +62,15 @@ public class Interpreter {
 		if (line.trim().length() == 0)
 			return;
 		String[] sentence = line.split(" ");
-		Instruction ins = null;
-		if (sentence[0].equals("push")) {
-			ins = new Push(Integer.parseInt(sentence[1]));
-		} else if (sentence[0].equals("add")) {
-			ins = new Add();
-		} else if (sentence[0].equals("sub")) {
-			ins = new Sub();
-		} else if (sentence[0].equals("mul")) {
-			ins = new Mul();
-		} else if (sentence[0].equals("jmp")) {
-			ins = new Jmp(Integer.parseInt(sentence[1]));
-		} else if (sentence[0].equals("jmpg")) {
-			ins = new Jmpg(Integer.parseInt(sentence[1]));
-		} else if (sentence[0].equals("load")) {
-			ins = new Load();
-		} else if (sentence[0].equals("store")) {
-			ins = new Store();
-		} else if (sentence[0].equals("input")) {
-			ins = new Input();
-		} else if (sentence[0].equals("output")) {
-			ins = new Output();
-		}
+		Instruction ins = index.getInstruction(sentence[0]).apply(sentence);
 		insList.add(ins);
+	}
+	
+	protected MyStack getStack() {
+		return stack;
+	}
+	
+	protected int[] getMemory() {
+		return memory;
 	}
 }
