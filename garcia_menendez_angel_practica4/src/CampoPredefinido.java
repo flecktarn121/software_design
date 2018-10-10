@@ -1,12 +1,12 @@
 import java.io.*;
 
-public class CampoPredefinido implements Campo {
+public class CampoPredefinido extends CampoBase implements Campo {
 
 	private String etiqueta;
 	private String[] valores;
 
 	public CampoPredefinido(String etiqueta, String... valores) {
-		this.etiqueta = etiqueta;
+		super(etiqueta);
 		this.valores = valores;
 	}
 
@@ -37,4 +37,10 @@ public class CampoPredefinido implements Campo {
 	}
 
 	private String texto;
+
+	@Override
+	protected boolean checkValidity(String texto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
