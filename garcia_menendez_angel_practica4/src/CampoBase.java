@@ -38,5 +38,9 @@ public abstract class CampoBase implements Campo {
 		
 		return texto;
 	}
+	
+	public String getEtiqueta() {
+		return etiqueta;
+	}
 
 }

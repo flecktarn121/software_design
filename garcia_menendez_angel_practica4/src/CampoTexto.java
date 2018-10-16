@@ -1,38 +1,14 @@
-import java.io.*;
 
-public class CampoTexto implements Campo {
 
-	private String etiqueta;
-
+public class CampoTexto extends CampoBase {
+	
 	public CampoTexto(String etiqueta) {
-		this.etiqueta = etiqueta;
+		super(etiqueta);
 	}
 
-	public void pideDato() {
-		BufferedReader consola = new BufferedReader(new InputStreamReader(System.in));
-
-		boolean valido;
-		do {
-			valido = true;
-			try {
-				System.out.print(etiqueta + ": ");
-				texto = consola.readLine();
-
-				for (char ch : texto.toCharArray()) {
-					if (!Character.isLetter(ch)) {
-						valido = false;
-						break;
-					}
-				}
-			} catch (IOException ex) {
-				System.out.println(ex);
-			}
-		} while (!valido);
+	@Override
+	protected boolean checkValidity(String texto) {
+		boolean valido = true;
+		return valido;
 	}
-
-	public String getString() {
-		return texto;
-	}
-
-	private String texto;
 }

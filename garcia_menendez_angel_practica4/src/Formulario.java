@@ -6,10 +6,10 @@ public class Formulario {
 	}
 
 	public void PideDatos() {
-		for (Campo campo : campos) {
+		campos.forEach((campo)->{
 			campo.pideDato();
 			System.out.println(campo.getString());
-		}
+		});
 	}
 
 	private List<Campo> campos = new ArrayList<Campo>();
