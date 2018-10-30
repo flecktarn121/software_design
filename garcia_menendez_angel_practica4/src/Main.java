@@ -8,6 +8,6 @@ public class Main {
 		formulario.addCampo(new CampoNumero("Telefono"));
 		formulario.addCampo(new CampoPredefinido("Ciudad", "Santander", "Oviedo", "Cadiz"));
 
-		formulario.PideDatos();
+		formulario.pideDatos();
 	}
 }

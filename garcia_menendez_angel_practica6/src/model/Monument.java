@@ -1,9 +1,5 @@
 package model;
 
-import google.maps.Coordinates;
-import google.maps.GPS;
-import google.maps.MapElement;
-
 public class Monument {
 	private String name;
 	private String author;

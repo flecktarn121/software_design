@@ -5,7 +5,7 @@ public class Formulario {
 		campos.add(campo);
 	}
 
-	public void PideDatos() {
+	public void pideDatos() {
 		campos.forEach((campo)->{
 			campo.pideDato();
 			System.out.println(campo.getString());

@@ -1,5 +1,8 @@
 package form;
 
+import form.creation.MonumentFormCreator;
+import form.creation.PhotoFormCreator;
+import form.creation.RestaurantFormCreator;
 import google.maps.*;
 import model.*;
 
@@ -12,12 +15,16 @@ public class FormApp
 		Restaurant tavernaDeiFori = new Restaurant("La Taverna dei Fori Imperiali", 
 				"via Madonna dei Monti, 9, 00184 Roma, Italia", "+39 06 6798643");
 		
-		Form form = new Form();
-		form.edit(coliseo);
+		Form form = new MonumentFormCreator().create(coliseo);
+		form.edit();
 		
 		// Tarea 1. Editar también el restaurante: que se puedan editar el nombre y la dirección
+		form = new RestaurantFormCreator().create(tavernaDeiFori);
+		form.edit();
 		
 		// Tarea 2. Editar también la foto (usuario y descripción)
+		form = new PhotoFormCreator().create(photoColosseum);
+		form.edit();
 	}
 
 }
