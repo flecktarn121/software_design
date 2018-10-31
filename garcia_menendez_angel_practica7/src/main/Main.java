@@ -4,6 +4,9 @@ import java.io.*;
 
 import filesystem.FileSystem;
 import outputs.*;
+import outputs.filter.EncriptedOutput;
+import outputs.filter.NoRepeatedSpacesOutput;
+import outputs.filter.NormalizedTextOutput;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
