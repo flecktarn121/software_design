@@ -23,5 +23,13 @@ public class Main {
 		CharacterCountOutput counter = new CharacterCountOutput(new Internet("1.1.1.1"));
 		system.copyFile("privado.txt", new EncriptedOutput(counter));
 		System.out.println("The number of characters is: "+counter.getNumberOfCharacters());
+		
+		CharacterCountOutput counter2 = new CharacterCountOutput(new Internet("2.2.2.2") );
+		CharacterCountOutput counter1=new CharacterCountOutput(new NormalizedTextOutput(counter2));
+		
+		system.copyFile("privado.txt", counter1);
+		
+		System.out.println("Initially there were "+counter1.getNumberOfCharacters()+" characters");
+		System.out.println("After normalizing there were "+counter2.getNumberOfCharacters()+" characters");
 	}
 }
