@@ -1,58 +1,37 @@
 package poll;
 
-public class Poll 
-{
+import data.DataCenter;
+
+public class Poll {
 	private int yeses, nos;
 	private String question;
-	
-	public Poll(String question) 
-	{
+	private DataCenter dc;
+
+	public Poll(String question, DataCenter dc) {
 		this.question = question;
+		this.dc = dc;
 	}
 
-	public String getQuestion() 
-	{
+	public String getQuestion() {
 		return question;
 	}
 
-	public int getYeses() 
-	{
+	public int getYeses() {
 		return yeses;
 	}
 
-	public int getNos() 
-	{
+	public int getNos() {
 		return nos;
 	}
 
-	public void incrementYeses() 
-	{
+	public void incrementYeses() {
 		yeses++;
-		updatePieChart();
-		updateBarChart();
-		saveResults();
+		dc.updateData();
 	}
 
-	public void incrementNos() 
-	{
+	public void incrementNos() {
 		nos++;
-		updatePieChart();
-		updateBarChart();
-		saveResults();
+		dc.updateData();
 	}
 
-	private void updateBarChart() 
-	{
-		System.out.println("Dibujando un gráfico de barras...");
-	}
-
-	private void updatePieChart() 
-	{
-		System.out.println("Dibujando un gráfico circular...");
-	}
-
-	private void saveResults() 
-	{
-		System.out.println("Guardando los resultados...");
-	}
 }
