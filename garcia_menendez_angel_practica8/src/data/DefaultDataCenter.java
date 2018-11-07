@@ -3,8 +3,10 @@ package data;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DefaultDataCenter {
+import poll.Poll;
 
+public class DefaultDataCenter {
+	Poll poll;
 	private List<DataObserver> observers = new ArrayList<DataObserver>();
 
 	public DefaultDataCenter() {
@@ -23,5 +25,4 @@ public class DefaultDataCenter {
 			observer.update();
 		});
 	}
-
 }
