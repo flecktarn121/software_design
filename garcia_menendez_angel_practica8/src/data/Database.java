@@ -1,8 +1,14 @@
 package data;
 
-public class Database {
-	void saveResults() 
+public class Database implements DataObserver{
+	private void saveResults() 
 	{
 		System.out.println("Guardando los resultados...");
+	}
+
+	@Override
+	public void update() {
+		this.saveResults();
+		
 	}
 }

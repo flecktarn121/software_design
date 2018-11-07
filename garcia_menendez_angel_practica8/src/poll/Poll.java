@@ -1,13 +1,13 @@
 package poll;
 
-import data.DataCenter;
+import data.DefaultDataCenter;
 
 public class Poll {
 	private int yeses, nos;
 	private String question;
-	private DataCenter dc;
+	private DefaultDataCenter dc;
 
-	public Poll(String question, DataCenter dc) {
+	public Poll(String question, DefaultDataCenter dc) {
 		this.question = question;
 		this.dc = dc;
 	}

@@ -1,28 +1,27 @@
 package data;
 
-public class DefaultDataCenter implements DataCenter {
+import java.util.ArrayList;
+import java.util.List;
 
-	private Database db = new Database();
-	private PieChart pie = new PieChart();
-	private BarChart bar = new BarChart();
-	@Override
+public class DefaultDataCenter {
+
+	private List<DataObserver> observers = new ArrayList<DataObserver>();
+
+	public DefaultDataCenter() {
+	}
+
+	public void Add(DataObserver observer) {
+		observers.add(observer);
+	}
+
+	public void remove(DataObserver observer) {
+		this.observers.remove(observer);
+	}
+
 	public void updateData() {
-		this.updatePieChart();
-		this.UpdateBarChart();
-		this.saveResults();
-
-	}
-	private void saveResults() {
-		db.saveResults();
-		
-	}
-	private void UpdateBarChart() {
-		bar.updateBarChart();
-		
-	}
-	private void updatePieChart() {
-		pie.updatePieChart();
-		
+		observers.parallelStream().forEach((observer) -> {
+			observer.update();
+		});
 	}
 
 }
