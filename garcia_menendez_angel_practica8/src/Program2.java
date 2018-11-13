@@ -1,19 +1,17 @@
 import java.io.IOException;
 
-import data.BarChart;
 import data.Database;
 import data.DefaultDataCenter;
-import data.PieChart;
+import data.PieChartThree;
 import data.StateLine;
 import poll.Poll;
 import ui.Interviewer;
 
-public class Program1 {
+public class Program2 {
 	public static void main(String[] args) throws IOException {
 		DefaultDataCenter dc = new DefaultDataCenter();
 		dc.Add(new Database(dc));
-		dc.Add(new BarChart(dc));
-		dc.Add(new PieChart(dc));
+		dc.Add(new PieChartThree(dc));
 		dc.Add(new StateLine(dc));
 		Poll poll = new Poll("¿Está a favor de la energia nuclear?", dc);
 
@@ -21,3 +19,4 @@ public class Program1 {
 		interviewer.fill(poll);
 	}
 }
+
