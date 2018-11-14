@@ -1,6 +1,8 @@
 package interpreter.ast.nodes;
 
-public class Assignment implements Statement 
+import interpreter.visitor.Visitor;
+
+public class Assignment implements Statement
 {
 	public Variable variable;
 	public Expression expression;
@@ -9,5 +11,11 @@ public class Assignment implements Statement
 	{
 		this.variable = variable;
 		this.expression = expression;
+	}
+
+	@Override
+	public Object accept(Visitor v, Object param) {
+		return v.visit(this, param);
+		
 	}
 }
