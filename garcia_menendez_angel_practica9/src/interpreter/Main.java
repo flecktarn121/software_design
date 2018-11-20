@@ -3,6 +3,9 @@ package interpreter;
 import java.util.*;
 
 import interpreter.ast.nodes.*;
+import interpreter.visitor.InterpreterVisitor;
+import interpreter.visitor.PrintVisitor;
+import interpreter.visitor.Visitor;
 
 public class Main 
 {
@@ -43,10 +46,12 @@ public class Main
 		
 		// TODO: Tenéis que hacer que funcione lo siguiente
 		System.out.println("\n--- Recorrido con el patrón Visitor: sin hacer");
-		// Visitor printVisitor = new PrintVisitor();
-		// program.accept(printVisitor, null);
+		 Visitor printVisitor = new PrintVisitor();
+		 program.accept(printVisitor, null);
 		
-		// TODO: Después, otro visitor que interprete el programa
+		 System.out.println("\n--- Recorrido con el patrón Visitor: sin hacer");
+		 Visitor exVisitor = new InterpreterVisitor();
+		 program.accept(exVisitor, null);
 		
 	}
 }
